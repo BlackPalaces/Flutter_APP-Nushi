@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 // import '../widgets/InstagramLikeVideo.dart';
-import '../widgets/expandable_text.dart.dart';
+import '../widgets/expandable_text.dart';
+import '../widgets/post_widget.dart';
 import '../widgets/profile_widget.dart';
 
 class HomePage extends StatelessWidget {  // เปลี่ยนชื่อ class ให้เป็น PascalCase
@@ -57,33 +58,57 @@ class HomePage extends StatelessWidget {  // เปลี่ยนชื่อ c
           // Widget ย่อยที่จะแสดงใน Row
        
     Column(
-    mainAxisSize: MainAxisSize.min,
-    children: [
-      Container(
-        width: 80,
-        height: 80,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.blue,
-          image: DecorationImage(
-              image: NetworkImage('https://64.media.tumblr.com/3123ed8f8e431ce655bd2cf3ea2a38cb/49250e07505ddf9a-33/s400x600/04c304d5f3e7bd051ee5c644573ab33ab85d92df.png'), // ใช้ URL หรือ Asset สำหรับภาพ
-              fit: BoxFit.cover,  // จัดการขนาดรูปภาพให้เหมาะสม
+  mainAxisSize: MainAxisSize.min,
+  children: [
+    Stack(
+      children: [
+        // รูปโปรไฟล์หลัก
+        Container(
+          width: 80,
+          height: 80,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.blue,
+            image: DecorationImage(
+              image: NetworkImage('https://64.media.tumblr.com/3123ed8f8e431ce655bd2cf3ea2a38cb/49250e07505ddf9a-33/s400x600/04c304d5f3e7bd051ee5c644573ab33ab85d92df.png'),
+              fit: BoxFit.cover,
             ),
+          ),
         ),
-      ),
-      const SizedBox(height: 8),
-      SizedBox(
-        width: 80, 
-        child: const Text(
-          'สตอรี่ของคุณ',
-          style: TextStyle(fontSize: 14, color: Colors.black),
-          textAlign: TextAlign.center, 
-          maxLines: 1,
+        
+        // ปุ่มบวกซ้อนมุมขวาล่าง
+        Positioned(
+          bottom: 0,
+          right: 0,
+          child: Container(
+            width: 28,
+            height: 28,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.blue,
+              border: Border.all(color: Colors.white, width: 2),
+            ),
+            child: Icon(
+              Icons.add,
+              color: Colors.white,
+              size: 16,
+            ),
+          ),
         ),
+      ],
+    ),
+    const SizedBox(height: 8),
+    SizedBox(
+      width: 80,
+      child: const Text(
+        'สตอรี่ของคุณ',
+        style: TextStyle(fontSize: 14, color: Colors.black),
+        textAlign: TextAlign.center,
+        maxLines: 1,
       ),
-      
-    ],
-  ),
+    ),
+  ],
+),
         ProfileWidget(
              name: 'bell_C',
             imageUrl: 'https://i.pinimg.com/736x/31/c2/c8/31c2c89dee15450045c58fb8226b39b1.jpg', // URL ของรูปภาพที่ต้องการแสดง
@@ -114,6 +139,7 @@ class HomePage extends StatelessWidget {  // เปลี่ยนชื่อ c
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [ 
             Container(
+              
               padding: const EdgeInsets.all(8),
               child: Row(
                 children: [
@@ -185,6 +211,7 @@ class HomePage extends StatelessWidget {  // เปลี่ยนชื่อ c
           ],
         ),
         Container(
+          
           padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Column(
                 children: [
@@ -308,6 +335,12 @@ class HomePage extends StatelessWidget {  // เปลี่ยนชื่อ c
               ),
               
             ),
+             PostWidget(
+            title: "โพสต์ที่ 1",
+            description: "นี่คือคำอธิบายของโพสต์ที่ 1",
+            imageUrl: "https://i.ytimg.com/vi/queMRz6mn4E/maxresdefault.jpg",
+            ProfileimageUrl: 'https://i.ytimg.com/vi/queMRz6mn4E/maxresdefault.jpg'
+          ),
   ],
           ),
           
