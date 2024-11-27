@@ -46,7 +46,13 @@ Follow these steps to install and run the app:
     ```bash
     flutter run
   - **Ios:**   
-   Ensure you have Xcode installed and run:
-   ```bash
-   flutter run
-  
+   Ensure you have Xcode installed and run: 
+    ```bash
+    flutter run
+    
+  ---
+ ## Picture
+ ## Screenshots
+![Home Screen](./screenshots/igclone.png)
+
+
